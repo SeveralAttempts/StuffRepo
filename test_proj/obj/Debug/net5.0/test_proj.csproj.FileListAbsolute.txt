@@ -1,0 +1,16 @@
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\obj\Debug\net5.0\test_proj.csproj.AssemblyReference.cache
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\obj\Debug\net5.0\test_proj.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\obj\Debug\net5.0\test_proj.AssemblyInfoInputs.cache
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\obj\Debug\net5.0\test_proj.AssemblyInfo.cs
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\obj\Debug\net5.0\test_proj.csproj.CoreCompileInputs.cache
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\bin\Debug\net5.0\test_proj.exe
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\bin\Debug\net5.0\test_proj.deps.json
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\bin\Debug\net5.0\test_proj.runtimeconfig.json
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\bin\Debug\net5.0\test_proj.runtimeconfig.dev.json
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\bin\Debug\net5.0\test_proj.dll
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\bin\Debug\net5.0\ref\test_proj.dll
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\bin\Debug\net5.0\test_proj.pdb
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\obj\Debug\net5.0\test_proj.dll
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\obj\Debug\net5.0\ref\test_proj.dll
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\obj\Debug\net5.0\test_proj.pdb
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\obj\Debug\net5.0\test_proj.genruntimeconfig.cache

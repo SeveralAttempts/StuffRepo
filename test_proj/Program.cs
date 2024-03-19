@@ -73,7 +73,7 @@ namespace test_proj
             ///////////////////////////////////////////
 
 
-            Contest.Contest.ToClient();
+            Contest.Contest.Water();
         }
     }
 }

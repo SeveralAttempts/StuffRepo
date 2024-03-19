@@ -49,57 +49,94 @@ namespace Contest
             Console.WriteLine(result);
         }
 
-        public static void ToClient()
+        public static void Client()
         {
             int ridesAmount = int.Parse(Console.ReadLine());
-            string result = "";
-            Dictionary<string, List<List<string>>> rocketsNrides = new();
-            List<string> ids = new();
+            Dictionary<int, int> rocketsNrides = new();
             for (int i = 0; i < ridesAmount; i++)
             {
-                List<string> rideData = Console.ReadLine().Split(" ").ToList();
-                if (!rocketsNrides.ContainsKey(rideData.ElementAt(3)))
+                string rideData = Console.ReadLine();
+                List<string> arrayRideData = rideData.Split(" ").ToList();
+                if (!arrayRideData.ElementAt(4).Equals("B"))
                 {
-                    rocketsNrides.Add(rideData.ElementAt(3), new List<List<string>>());
-                    rocketsNrides[rideData.ElementAt(3)].Add(rideData);
-                    ids.Add(rideData.ElementAt(3));
+                    if (!rocketsNrides.ContainsKey(int.Parse(arrayRideData[3])))
+                    {
+                        if (arrayRideData[4].Equals("S") || arrayRideData[4].Equals("C"))
+                        {
+                            rocketsNrides.Add(int.Parse(arrayRideData[3]), 0);
+                            rocketsNrides[int.Parse(arrayRideData[3])] += (int.Parse(arrayRideData[0]) * 24 * 60) + (int.Parse(arrayRideData[1]) * 60) + int.Parse(arrayRideData[2]);
+                        }
+                        else
+                        {
+                            rocketsNrides.Add(int.Parse(arrayRideData[3]), 0);
+                            rocketsNrides[int.Parse(arrayRideData[3])] -= (int.Parse(arrayRideData[0]) * 24 * 60) + (int.Parse(arrayRideData[1]) * 60) + int.Parse(arrayRideData[2]);
+                        }
+                        
+                    }
+                    else
+                    {
+                        if (arrayRideData[4].Equals("S") || arrayRideData[4].Equals("C"))
+                        {
+                            rocketsNrides[int.Parse(arrayRideData[3])] += (int.Parse(arrayRideData[0]) * 24 * 60) + (int.Parse(arrayRideData[1]) * 60) + int.Parse(arrayRideData[2]);
+                        }
+                        else
+                        {
+                            rocketsNrides[int.Parse(arrayRideData[3])] -= (int.Parse(arrayRideData[0]) * 24 * 60) + (int.Parse(arrayRideData[1]) * 60) + int.Parse(arrayRideData[2]);
+                        }
+                    }
+                }
+            }
+            List<int> list = rocketsNrides.Select(o => o.Key).OrderBy(o => o).ToList();
+            foreach (var item in list)
+            {
+                Console.Write(rocketsNrides[item] + " ");
+            }
+        }
+
+        public static void Water()
+        {
+            int ordersAmount = int.Parse(Console.ReadLine());
+            int[,] orders = new int[ordersAmount, 3];
+            for (int i = 0; i < ordersAmount; i++)
+            {
+                var l = Console.ReadLine().Split(" ").ToList();
+                orders[i, 0] = int.Parse(l[0]);
+                orders[i, 1] = int.Parse(l[1]);
+                orders[i, 2] = int.Parse(l[2]);
+            }
+            int filtersAmount = int.Parse(Console.ReadLine());
+            int[,] filters = new int[filtersAmount, 3];
+            string result = "";
+            for (int i = 0; i < filtersAmount; i++)
+            {
+                var l = Console.ReadLine().Split(" ");
+                filters[i, 0] = int.Parse(l[0]);
+                filters[i, 1] = int.Parse(l[1]);
+                filters[i, 2] = int.Parse(l[2]);
+                int tmp = 0;
+                if (filters[i, 2] == 1)
+                {
+                    for (int j = 0; j < ordersAmount; j++)
+                    {
+                        if (orders[j, 0] >= filters[i, 0] && orders[j, 0] <= filters[i, 1])
+                        {
+                            tmp += orders[j, 2];
+                        }
+                    }
                 }
                 else
                 {
-                    rocketsNrides[rideData.ElementAt(3)].Add(rideData);
-                }
-            }
-            for (int i = 0; i < ids.Count; i++)
-            {
-                foreach (var item in rocketsNrides[ids.ElementAt(i)])
-                {
-                    if (item.ElementAt(0).Length < 2)
+                    for (int j = 0; j < ordersAmount; j++)
                     {
-                        item[0] = "0" + item[0];
-                    }
-                    if (item.ElementAt(1).Length < 2)
-                    {
-                        item[1] = "0" + item[1];
-                    }
-                    if (item.ElementAt(2).Length < 2)
-                    {
-                        item[2] = "0" + item[2];
+                        if (orders[j, 1] >= filters[i, 0] && orders[j, 1] <= filters[i, 1])
+                        {
+                            tmp += orders[j, 1] - orders[j, 0];
+                        }
                     }
                 }
+                result += tmp + " ";
             }
-            for (int i = 0; i < ids.Count; i++)
-            {
-                var a = rocketsNrides[ids.ElementAt(i)].OrderBy(o => int.Parse(o.ElementAt(0) + o.ElementAt(1) + o.ElementAt(2)))
-                    .Select(o => o).ToList();
-                foreach (var item in a)
-                {
-                    Console.WriteLine(item[0] + item[1] + item[2] + item[4]);
-                }
-                rocketsNrides.Remove(ids.ElementAt(i));
-                rocketsNrides.Add(ids.ElementAt(i), a);
-                Console.WriteLine();
-            }
-            
+            Console.WriteLine(result);
         }
     }
 }

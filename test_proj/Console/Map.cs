@@ -8,40 +8,56 @@ namespace ConsoleTest
 {
     class Map
     {
-        string[ , ] map;
+
+        List<List<Stack<IEntity>>> map;
+        int area;
         
         public Map(int area)
         {
-            map = new string[area, area];
+            this.area = area;
+            map = new List<List<Stack<IEntity>>>(area);
+            for (int i = 0; i < map.Capacity; i++)
+            {
+                map.Add(new List<Stack<IEntity>>(area));
+                for (int j = 0; j < map[i].Capacity; j++)
+                {
+                    map[i].Add(new Stack<IEntity>());
+                }
+            }
 
             for (int i = 0; i < area; i++)
             {
                 for (int j = 0; j < area; j++)
                 {
-                    if (i == 0 || i == area - 1)
-                    {
-                        map[j, i] = "|";
-                    }
-                    if (j == 0 || j == area - 1)
-                    {
-                        map[j, i] = "_";
-                    }
+                    if (i == 0 || j == 0 || i == area - 1 || j == area - 1)
+                        map[j][i].Push(new Wall(" / ", Walkable.False));
                     else
-                        map[j, i] = " ";
+                        map[j][i].Push(new Floor("   ", Walkable.True));
                 }
             }
         }
 
-        public void Show()
+        public void InitPlayer(Player player, int x, int y)
         {
-            for (int i = 0; i < map.GetLength(0); i++)
+            if (map[y][x].Peek().IsWalkable == Walkable.True)
             {
-                for (int j = 0; j < map.GetLength(1); j++)
-                {
-                    Console.Write(map[i, j]);
-                }
-                Console.WriteLine();
+                map[y][x].Push(player);
             }
+        }
+
+        public bool ArrangeUnit(int x, int y, int nextX, int nextY)
+        {
+            if (map[nextY][nextX].Peek().IsWalkable == Walkable.True)
+            {
+                map[nextY][nextX].Push(map[y][x].Pop());
+                return true;
+            }
+            return false;
+        }
+
+        public List<List<Stack<IEntity>>> GetMap()
+        {
+            return map;
         }
     }
 }

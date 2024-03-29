@@ -99,39 +99,50 @@ namespace Contest
             int[,] orders = new int[ordersAmount, 3];
             for (int i = 0; i < ordersAmount; i++)
             {
-                var l = Console.ReadLine().Split(" ").ToList();
-                orders[i, 0] = int.Parse(l[0]);
-                orders[i, 1] = int.Parse(l[1]);
-                orders[i, 2] = int.Parse(l[2]);
+                var l = Console.ReadLine();
+                string t = "";
+                int c = 0;
+                for (int k = 0; k < l.Length; k++)
+                {
+                    if (l[k] == ' ')
+                    {
+                        orders[i, c] = int.Parse(t);
+                        c++;
+                        t = "";
+                    }
+                    else
+                        t += l[k];
+                }
             }
             int filtersAmount = int.Parse(Console.ReadLine());
             int[,] filters = new int[filtersAmount, 3];
             string result = "";
             for (int i = 0; i < filtersAmount; i++)
             {
-                var l = Console.ReadLine().Split(" ");
-                filters[i, 0] = int.Parse(l[0]);
-                filters[i, 1] = int.Parse(l[1]);
-                filters[i, 2] = int.Parse(l[2]);
-                int tmp = 0;
-                if (filters[i, 2] == 1)
+                var l = Console.ReadLine();
+                string t = "";
+                int c = 0;
+                for (int k = 0; k < l.Length; k++)
                 {
-                    for (int j = 0; j < ordersAmount; j++)
+                    if (l[k] == ' ')
                     {
-                        if (orders[j, 0] >= filters[i, 0] && orders[j, 0] <= filters[i, 1])
-                        {
-                            tmp += orders[j, 2];
-                        }
+                        filters[i, c] = int.Parse(t);
+                        c++;
+                        t = "";
                     }
+                    else
+                        t += l[k];
                 }
-                else
+                int tmp = 0;
+                for (int j = 0; j < ordersAmount; j++)
                 {
-                    for (int j = 0; j < ordersAmount; j++)
+                    if (filters[i, 2] == 1)
                     {
-                        if (orders[j, 1] >= filters[i, 0] && orders[j, 1] <= filters[i, 1])
-                        {
-                            tmp += orders[j, 1] - orders[j, 0];
-                        }
+                        tmp += orders[j, 0] >= filters[i, 0] && orders[j, 0] <= filters[i, 1] ? orders[j, 2] : 0;
+                    }
+                    else
+                    {
+                        tmp += orders[j, 1] >= filters[i, 0] && orders[j, 1] <= filters[i, 1] ? orders[j, 1] - orders[j, 0] : 0;
                     }
                 }
                 result += tmp + " ";

@@ -7,6 +7,8 @@ using Virtualization;
 using GenericClass;
 using ConsoleTest;
 using Contest;
+using Records;
+using System.IO;
 
 namespace test_proj
 {
@@ -72,8 +74,19 @@ namespace test_proj
             //m.Show();
             ///////////////////////////////////////////
 
+            // Records
+            ///////////////////////////////////////////
+            //var sut = new Rec(
+            //    new List<string>()
+            //);
+            //sut.Test.Add("BS");
+            //sut.Test.Add("MBA");
+            //sut.Test.Add("JD");
+            //Console.WriteLine(sut.Test.Count);
+            ///////////////////////////////////////////
 
-            Contest.Contest.Water();
+            Engine engine = new(5);
+            engine.Start();
         }
     }
 }

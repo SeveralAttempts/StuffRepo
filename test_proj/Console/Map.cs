@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SimplexNoise;
 
 namespace ConsoleTest
 {
@@ -24,16 +25,65 @@ namespace ConsoleTest
                     map[i].Add(new Stack<IEntity>());
                 }
             }
+            CubeMapGeneration();
+            ShowEntireMap();
+            NoiseMapGeneration();
+        }
 
+        private void CubeMapGeneration()
+        {
             for (int i = 0; i < area; i++)
             {
                 for (int j = 0; j < area; j++)
                 {
                     if (i == 0 || j == 0 || i == area - 1 || j == area - 1)
-                        map[j][i].Push(new Wall(" / ", Walkable.False));
+                        map[i][j].Push(new Wall("W", Walkable.False));
                     else
-                        map[j][i].Push(new Floor("   ", Walkable.True));
+                        map[i][j].Push(new Floor(" ", Walkable.True));
                 }
+            }
+        }
+
+        private void RandomMapGeneration()
+        {
+            var rand = new Random();
+            for (int i = 1; i < area - 1; i++)
+            {
+                for (int j = 1; j < area - 1; j++)
+                {
+                    if (rand.NextDouble() >= 0.5)
+                        map[j][i].Push(new Wall("G", Walkable.False));
+                    else
+                        map[j][i].Push(new Floor(" ", Walkable.True));
+                }
+            }
+        }
+
+        private void NoiseMapGeneration()
+        {
+            var m = Noise.Calc2D(area - 1, area - 1, 3f);
+            for (int i = 1; i < area - 1; i++)
+            {
+                for (int j = 1; j < area - 1; j++)
+                {
+                    if (m[i,j] >= 128)
+                        map[j][i].Push(new Wall("G", Walkable.False));
+                    else
+                        map[j][i].Push(new Floor(" ", Walkable.True));
+                }
+            }
+        }
+
+        public void ShowEntireMap()
+        {
+            Console.WriteLine();
+            for (int i = 1; i < area; i++)
+            {
+                for (int j = 1; j < area; j++)
+                {
+                    Console.Write(map[j][i].Peek().Icon);
+                }
+                Console.WriteLine();
             }
         }
 

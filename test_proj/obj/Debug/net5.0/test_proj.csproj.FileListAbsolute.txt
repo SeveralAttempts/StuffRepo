@@ -14,3 +14,6 @@ C:\Users\SolomahinSA\source\repos\test_proj\test_proj\obj\Debug\net5.0\test_proj
 C:\Users\SolomahinSA\source\repos\test_proj\test_proj\obj\Debug\net5.0\ref\test_proj.dll
 C:\Users\SolomahinSA\source\repos\test_proj\test_proj\obj\Debug\net5.0\test_proj.pdb
 C:\Users\SolomahinSA\source\repos\test_proj\test_proj\obj\Debug\net5.0\test_proj.genruntimeconfig.cache
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\bin\Debug\net5.0\LibNoise.NetStandart.dll
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\bin\Debug\net5.0\SimplexNoise.dll
+C:\Users\SolomahinSA\source\repos\test_proj\test_proj\obj\Debug\net5.0\test_proj.csproj.CopyComplete

@@ -28,7 +28,7 @@ namespace ConsoleTest
             rightMove.Next = leftMove;
             map = new(area);
             player = new(Convert.ToInt32(area / 2), Convert.ToInt32(area / 2), ref map, "@", Walkable.False);
-            camera = new Camera(2);
+            camera = new Camera(5);
         }
 
         public void Start()
@@ -40,6 +40,11 @@ namespace ConsoleTest
                 if (cki.Key == ConsoleKey.Escape)
                 {
                     break;
+                }
+                else if(cki.Key == ConsoleKey.M)
+                {
+                    map.ShowEntireMap();
+                    Console.ReadKey();
                 }
 
                 player.Move(upMove.HandleKey(cki));

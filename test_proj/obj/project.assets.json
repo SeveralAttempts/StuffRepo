@@ -1,11 +1,65 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    "net5.0": {
+      "LibNoise.NetStandart/0.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/LibNoise.NetStandart.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/LibNoise.NetStandart.dll": {}
+        }
+      },
+      "SimplexNoise/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp2.2/SimplexNoise.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.2/SimplexNoise.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "LibNoise.NetStandart/0.2.0": {
+      "sha512": "VyOiB43Jq+uIkIc5TAHsNrbYHQHjt7AyyDOhZidwglaIfWxOahNaL1YkAYZgC4JXEy1cpnQQH7ijTzBipV9rYA==",
+      "type": "package",
+      "path": "libnoise.netstandart/0.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/LibNoise.NetStandart.dll",
+        "libnoise.netstandart.0.2.0.nupkg.sha512",
+        "libnoise.netstandart.nuspec"
+      ]
+    },
+    "SimplexNoise/2.0.0": {
+      "sha512": "v9q0D/5PSUx3T8ZIixjDEGlLYIDhkTbeQOgz/SddoKw16aoz4LFlg7FTu9DD0304p2m9VsHfTmygCgZ2FzIDVw==",
+      "type": "package",
+      "path": "simplexnoise/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "lib/net40/SimplexNoise.dll",
+        "lib/net45/SimplexNoise.dll",
+        "lib/net472/SimplexNoise.dll",
+        "lib/netcoreapp2.2/SimplexNoise.dll",
+        "lib/netstandard1.0/SimplexNoise.dll",
+        "lib/netstandard2.0/SimplexNoise.dll",
+        "simplexnoise.2.0.0.nupkg.sha512",
+        "simplexnoise.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0": []
+    "net5.0": [
+      "LibNoise.NetStandart >= 0.2.0",
+      "SimplexNoise >= 2.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\SolomahinSA\\.nuget\\packages\\": {}
@@ -45,6 +99,16 @@
     "frameworks": {
       "net5.0": {
         "targetAlias": "net5.0",
+        "dependencies": {
+          "LibNoise.NetStandart": {
+            "target": "Package",
+            "version": "[0.2.0, )"
+          },
+          "SimplexNoise": {
+            "target": "Package",
+            "version": "[2.0.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

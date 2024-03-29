@@ -85,7 +85,7 @@ namespace test_proj
             //Console.WriteLine(sut.Test.Count);
             ///////////////////////////////////////////
 
-            Engine engine = new(5);
+            Engine engine = new(50);
             engine.Start();
         }
     }

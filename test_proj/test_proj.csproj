@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -8,6 +8,10 @@
   <ItemGroup>
     <PackageReference Include="LibNoise.NetStandart" Version="0.2.0" />
     <PackageReference Include="SimplexNoise" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Console_Client\" />
   </ItemGroup>
 
 </Project>

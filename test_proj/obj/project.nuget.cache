@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "IPrJwomWkJjsxbVE8wWMFVyvjSH5IKBZKE9BO/fhbLvXiZhgWuY2BMMNKbTlJKdYRN7xp8/A4HzZT2l/mKztAQ==",
+  "dgSpecHash": "fgwEJtlx6ZygRpykDpOHzWmdHNM4DtCP4V1X2cYpJvBxH0NpmFQxvwtBOhN/BiAENwEnHLpAdhn4UK1SSF14bg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\SolomahinSA\\source\\repos\\test_proj\\test_proj\\test_proj.csproj",
+  "projectFilePath": "D:\\CODE\\C#\\StuffRepo\\test_proj\\test_proj.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\SolomahinSA\\.nuget\\packages\\libnoise.netstandart\\0.2.0\\libnoise.netstandart.0.2.0.nupkg.sha512",
-    "C:\\Users\\SolomahinSA\\.nuget\\packages\\simplexnoise\\2.0.0\\simplexnoise.2.0.0.nupkg.sha512"
+    "C:\\Users\\pimgg\\.nuget\\packages\\libnoise.netstandart\\0.2.0\\libnoise.netstandart.0.2.0.nupkg.sha512",
+    "C:\\Users\\pimgg\\.nuget\\packages\\simplexnoise\\2.0.0\\simplexnoise.2.0.0.nupkg.sha512",
+    "C:\\Users\\pimgg\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
   ],
   "logs": []
 }
